@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: bnsmart-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bnsmart
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - bnsmart_pgdata:/var/lib/postgresql/data
+volumes:
+  bnsmart_pgdata:
